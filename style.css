@@ -3,13 +3,13 @@
     width: 100%;
     height: auto;
     display: block;
-    max-width: 700px;
+    max-width: 600px;
     margin: 1rem auto;
 }
 
 .svg-holder {
     position: absolute;
-    z-index: 2000;
+    z-index: 1000;
     top: 0;
     left: 0;
     width: 100%;
@@ -51,6 +51,7 @@ a:onhover {
 
 .img-holder img {
   width: 100%;
+  display: block;
 }
 
 #textbox {
@@ -59,7 +60,7 @@ a:onhover {
   padding-top: 15px;
   padding-bottom: 15px;
   background: #DDDDE0;
-  max-width: 700px;
+  max-width: 600px;
   height: auto;
   display: flex;
   align-items: center;
