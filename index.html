@@ -7,12 +7,150 @@
 		<meta name="description" content="Map">
 		<meta name="author" content="Annie Jennemann">
 		<meta name="keywords" content="">
-		<meta name="viewport" content="width=device-width">
-		<link rel="stylesheet" href="style.css">
-		<script type="text/javascript" src="main.js" defer></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400&display=swap" rel="stylesheet">
+
+		<style>
+		.map-holder {
+		    position: relative;
+		    width: 100%;
+		    height: auto;
+		    display: block;
+		    max-width: 600px;
+		    margin: 1rem auto;
+		}
+
+		.svg-holder {
+		    position: absolute;
+		    z-index: 1000;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: auto;
+		}
+
+		p {
+		  font-family: 'Lato', sans-serif;
+		  font-size: 14px;
+		}
+
+		h1 {
+		  font-family: 'Lato', sans-serif;
+		  font-weight: 900;
+		  font-size: 40px;
+		  position: relative;
+		  text-align: center;
+		}
+
+		h3 {
+		  font-family: 'Lato', sans-serif;
+		  font-weight: 900;
+		  font-size: 30px;
+		}
+
+		a {
+		  text-decoration: none;
+		  color: black;
+		}
+
+		a:onhover {
+		  color: blue;
+		}
+
+		.img-holder {
+		  position: relative;
+		  width: 100%;
+		}
+
+		.img-holder img {
+		  width: 100%;
+		  display: block;
+		}
+
+		#textbox {
+		  padding-left: 30px;
+		  padding-right: 30px;
+		  padding-top: 15px;
+		  padding-bottom: 15px;
+		  background: #DDDDE0;
+		  max-width: 600px;
+		  height: auto;
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-evenly;
+		}
+
+		#textbox img {
+		  margin: 25px;
+		  max-width: 100%;
+		  height: 100%;
+		}
+
+		#textbox audio {
+		  max-width: 100%;
+		}
+
+		.flex-pic {
+  		display: flex;
+  		flex-direction: column;
+		}
+
+		.flex-pic section:first-child {
+  		display: flex;
+  		margin-bottom: 25px;
+		}
+
+		.flex-pic img {
+  		width: 200px;
+  		height: auto;
+		}
+
+
+
+		.flex-text {
+		  display: flex;
+		  flex-direction: column;
+		  align-items: flex-start;
+		  max-width: 45%;
+		}
+
+		.quote {
+		  font-style: oblique;
+		}
+
+		path:hover {
+		  cursor: pointer;
+		  fill: #505050;
+		}
+
+		@media (max-width: 550px) {
+
+		  h1 {
+		    font-size: 20px;
+		  }
+
+		  #textbox {
+		    flex-direction: column;
+		  }
+
+		  #textbox img {
+		    margin: 10px;
+		  }
+
+		  .flex-pic {
+		    max-width: 75%;
+		  }
+
+		  .flex-text {
+		    max-width: 80%;
+		  }
+
+
+		}
+
+		</style>
 	</head>
   <body>
 
@@ -49,6 +187,7 @@
 
 			<div id="textbox">
 				<div class="flex-pic">
+
 				<img src="" alt=""/>
 				</div>
 
@@ -64,4 +203,47 @@
 		</div>
 
   </body>
+
+	<script>
+	"use strict";
+
+	var data = [{"path_id":"Dick_Knecht","name":"Dick Knecht","image":"knecht.jpg","link":"https://listen.sdpb.org/weather/2022-03-02/condo-owner-recalls-72-flood-and-pretty-soon-they-wouldnt-scream-anymore","audio":"https://cpa.ds.npr.org/s237/audio/2022/05/take-a-moment-5-4-22.mp3"},
+	{"path_id":"Rob_Oliver","name":"Rob Oliver","image":"oliver.jpg","link":"https://listen.sdpb.org/arts-life/2022-04-13/50-years-ago-rapid-city-couple-reunited-after-harrowing-flood-ordeal","audio":"https://cpa.ds.npr.org/s237/audio/2022/05/take-a-moment-5-4-22.mp3"},
+	{"path_id":"Masters_family","name":"Masters family","image":"masters2.jpg","link":"https://listen.sdpb.org/arts-life/2022-03-16/mother-who-lost-children-in-flood-i-dont-think-you-ever-get-over-it-ever-ever-ever","audio":"https://cpa.ds.npr.org/s237/audio/2022/05/take-a-moment-5-4-22.mp3"},
+	{"path_id":"Sharon_Weber1","name":"Kay Schriever","image":"schriever2.jpg","link":"https://listen.sdpb.org/arts-life/2022-02-23/we-all-shouldve-been-in-therapy-recalling-the-black-hills-flood-50-years-later","audio":"https://cpa.ds.npr.org/s237/audio/2022/05/take-a-moment-5-4-22.mp3"},
+	{"path_id":"Darrel_Heimes","name":"Darrel Heimes","image":"heimes2.jpg","link":"https://listen.sdpb.org/weather/2022-03-30/50-years-after-flood-guard-soldier-still-haunted-by-recovery-mission","audio":"https://cpa.ds.npr.org/s237/audio/2022/05/take-a-moment-5-4-22.mp3"},
+	{"path_id":"Delores_Allen","name":"Delores Allen","image":"allen.jpg","link":"https://www.columbiamissourian.com/","audio":"https://cpa.ds.npr.org/s237/audio/2022/05/take-a-moment-5-4-22.mp3"},
+	{"path_id":"Sharon_Weber2","name":"Sharon Weber","image":"weber.jpg","link":"https://www.columbiamissourian.com/","audio":"https://cpa.ds.npr.org/s237/audio/2022/05/take-a-moment-5-4-22.mp3"},
+	{"path_id":"Steve_Paula","name":"Steve Paula","image":"xxx.jpg","link":"https://www.columbiamissourian.com/","audio":"https://cpa.ds.npr.org/s237/audio/2022/05/take-a-moment-5-4-22.mp3"},
+	{"path_id":"Warren_Nelson","name":"Warren Nelson","image":"nelson2.jpg","link":"https://listen.sdpb.org/arts-life/2022-02-09/warren-nelson-remembers-the-black-hills-flood-of-1972","audio":"https://cpa.ds.npr.org/s237/audio/2022/05/take-a-moment-5-4-22.mp3"},
+	{"path_id":"Tom_Haggerty","name":"Tom Haggerty","image":"haggerty.jpg","text":"“While the water was running straight back down behind our house, it was very eerie because you could hear people screaming for help as they floated by but I couldn't see you. I mean, it was so dark. It was. You couldn't see anything past the length of your arm. Occasionally there'll be lightning strikes but even that you couldn't see because the clouds were so thick.”","link":"https://listen.sdpb.org/arts-life/2022-04-27/survivor-recalls-1972-black-hills-flood","audio":"haggerty.wav"}];
+
+
+	var interviews = document.getElementById('points').getElementsByTagName('path');
+
+	var textbox = document.getElementById("textbox");
+
+	for (var i = 0; i<interviews.length; i++) {
+
+	for (var k = 0; k<data.length; k++) {
+	  if (interviews[i].id === data[k].path_id) {
+	  var person = interviews[i];
+	  person.addEventListener("click", function() {
+
+	for (var j = 0; j<data.length; j++) {
+	    if (this.id === data[j].path_id) {
+	    textbox.innerHTML = '<div class="flex-pic">' +
+	  	'<img src="' + data[j].image + '" alt=""/>' + '</div>' +
+	    '<div class="flex-text">' + '<h3>' + data[j].name + '</h3>' +
+	    '<p class="quote">' + data[j].text + '</p>' +
+	  	'<p><a href="' + data[j].link + '">More information about ' + data[j].name + '</a></p>' +
+	  	'<audio controls>	<source src="' + data[j].audio + '" type="audio/mpeg"></audio>' + '</div>';
+
+	              }
+	            }
+	          });
+	        }
+	      }
+	    }
+	</script>
 </html>
